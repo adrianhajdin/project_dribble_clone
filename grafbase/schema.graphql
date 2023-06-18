@@ -1,0 +1,21 @@
+type User @model @search {
+    name: String! @length(min: 2, max: 100)
+    email: String! @unique
+    avatarUrl: URL!
+    description: String @length(min: 10, max: 1000)
+    githubUrl: URL
+    linkedinUrl: URL
+    projects: [Project]
+}
+
+type Project @model @search {
+    id: ID! @unique
+    title: String! @length(min: 3)
+    description: String! @length(min: 10)
+    image: URL!
+    liveSiteUrl: URL!
+    githubUrl: URL!
+    likes: Int @default(value: 0)
+    category: String!
+    createdBy: User!
+}

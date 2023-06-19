@@ -33,6 +33,7 @@ const Home = async ({ searchParams }: Props) => {
     )
   }
 
+  console.log({ serverUrl: process.env.SERVER_URL })
   console.log({ projects: projects?.projectSearch?.edges })
   console.log({ hasNextPage: projects?.projectSearch?.pageInfo?.hasNextPage })
 

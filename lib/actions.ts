@@ -62,22 +62,22 @@ export const createNewProject = async (form: FormState, creatorId: string) => {
         if (imageUrl.url) {
             const newForm = { ...form, image: imageUrl.url, creatorId }
 
-            const response = await fetch('api/posts', {
-                method: "POST",
-                body: JSON.stringify({ form: newForm, creatorId }),
-            });
-    
-            return response.json();
-
-            // const result = await makeRequest("api/posts", {
+            // const response = await fetch('api/posts', {
             //     method: "POST",
-            //     body: {
-            //         form: newForm,
-            //         creatorId
-            //     }
-            // })
+            //     body: JSON.stringify({ form: newForm, creatorId }),
+            // });
+    
+            // return response.json();
 
-            // return result
+            const result = await makeRequest("api/posts", {
+                method: "POST",
+                body: {
+                    form: newForm,
+                    creatorId
+                }
+            })
+
+            return result
         }
 
     } catch (err) {

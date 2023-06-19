@@ -13,10 +13,10 @@ type Props = {
             }[];
         };
     };
-    sessionUserId: string;
+    // sessionUserId: string;
 };
 
-const ProfileProjects = ({ user, sessionUserId }: Props) => {
+const ProfileProjects = ({ user }: Props) => {
     return (
         <>
             <div className="grid xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8 mt-5">
@@ -30,7 +30,7 @@ const ProfileProjects = ({ user, sessionUserId }: Props) => {
                             name={user.name}
                             avatarUrl={user.avatarUrl}
                             userId={user.id}
-                            sessionUserId={sessionUserId}
+                            // sessionUserId={sessionUserId}
                         />
                     )
                 )}

@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import Modal from "../Modal";
@@ -11,7 +11,7 @@ import { updateUser } from "@/lib/actions";
 
 type Props = {
     user: any;
-    sessionUserId: string
+    // sessionUserId: string
 };
 
 type FormState = {
@@ -20,8 +20,22 @@ type FormState = {
     githubUrl: string;
     linkedinUrl: string;
 };
+import { getCurrentUser } from "@/lib/session";
 
-const ProfileAbout = ({ user, sessionUserId }: Props) => {
+
+const ProfileAbout = async ({ user }: Props) => {
+    const [sessionUserId, setSessionUserId] = useState('');
+    
+    useEffect(() => {
+        const getSessionId = async () => {
+            const session = await getCurrentUser()
+
+            setSessionUserId(session?.user?.id)
+        }
+
+        getSessionId();
+    }, [])
+    
     const router = useRouter()
 
     const [openEditModal, setOpenEditModal] = useState(false);

@@ -13,19 +13,19 @@ type SearchParams = {
 type Props = {
     user: UserNode;
     searchParams: SearchParams;
-    sessionUserId: string | undefined | null;
+    // sessionUserId: string | undefined | null;
 }
 
-const ProfilePage = ({ user, searchParams, sessionUserId }: Props) => {
+const ProfilePage = ({ user, searchParams }: Props) => {
     function renderProfileContent() {
         switch (searchParams.tab) {
             case "work":
             case "projects":
                 // @ts-ignore
-                return <ProfileProjects user={user} sessionUserId={sessionUserId} />;
+                return <ProfileProjects user={user} />;
             case "about":
                 // @ts-ignore
-                return <ProfileAbout user={user} sessionUserId={sessionUserId} />;
+                return <ProfileAbout user={user} />;
             default:
                 return null;
         }

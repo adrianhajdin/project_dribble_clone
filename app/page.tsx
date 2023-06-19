@@ -33,6 +33,8 @@ const Home = async ({ searchParams }: Props) => {
     )
   }
 
+  console.log({ hasNextPage: projects?.projectSearch?.pageInfo?.hasNextPage })
+
   return (
     <section className="flexStart flex-col paddings mb-16">
       <HomeFilter />

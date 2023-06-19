@@ -13,7 +13,6 @@ type Props = {
             }[];
         };
     };
-    // sessionUserId: string;
 };
 
 const ProfileProjects = ({ user }: Props) => {
@@ -30,7 +29,6 @@ const ProfileProjects = ({ user }: Props) => {
                             name={user.name}
                             avatarUrl={user.avatarUrl}
                             userId={user.id}
-                            // sessionUserId={sessionUserId}
                         />
                     )
                 )}

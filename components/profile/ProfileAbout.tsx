@@ -20,22 +20,22 @@ type FormState = {
     githubUrl: string;
     linkedinUrl: string;
 };
-import { getCurrentUser } from "@/lib/session";
+// import { getCurrentUser } from "@/lib/session";
 
 
 const ProfileAbout = async ({ user }: Props) => {
-    const [sessionUserId, setSessionUserId] = useState('');
+    // const [sessionUserId, setSessionUserId] = useState('');
     
-    useEffect(() => {
-        const getSessionId = async () => {
-            const session = await getCurrentUser()
+    // useEffect(() => {
+    //     const getSessionId = async () => {
+    //         const session = await getCurrentUser()
 
             
-            // setSessionUserId(session?.user?.id)
-        }
+    //         // setSessionUserId(session?.user?.id)
+    //     }
 
-        getSessionId();
-    }, [])
+    //     getSessionId();
+    // }, [])
     
     const router = useRouter()
 
@@ -142,14 +142,14 @@ const ProfileAbout = async ({ user }: Props) => {
                 onClick={() => setOpenEditModal(true)}
             />
 
-            {sessionUserId === user?.id && (
+            {/* {sessionUserId === user?.id && (
                 <div className="w-full">
                     <CustomButton
                         title="Edit Profile"
                         handleClick={() => setOpenEditModal(true)}
                     />
                 </div>
-            )}
+            )} */}
         </section>
     );
 };

@@ -36,7 +36,7 @@ const Home = async ({ searchParams }: Props) => {
   const end = Date.now();
   console.log(`API call took ${end - start} ms`);
 
-  // console.log({ allProjects: projects?.projectSearch?.edges})
+  console.log({ allProjects: projects?.projectSearch?.edges})
 
   if (projects?.projectSearch?.edges?.length === 0) {
     return (
@@ -51,6 +51,7 @@ const Home = async ({ searchParams }: Props) => {
     <section className="flexStart flex-col paddings mb-16">
       <HomeFilter />
       <section className="projects-grid">
+        <Suspense fallback={<p>Loading feed...</p>}>
           {projects?.projectSearch?.edges.map(({ node }: AllProjectsType) => (
             <ProjectCard
               key={`${node?.id}`}
@@ -63,6 +64,7 @@ const Home = async ({ searchParams }: Props) => {
               // @ts-ignore
             />
           ))}
+        </Suspense>
       </section>
       {projects?.projectSearch?.pageInfo?.hasNextPage && (
         <LoadMore cursor={projects?.projectSearch?.pageInfo?.endCursor} />

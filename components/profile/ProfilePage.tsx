@@ -13,7 +13,7 @@ type SearchParams = {
 type Props = {
     user: UserNode;
     searchParams: SearchParams;
-    // sessionUserId: string | undefined | null;
+    sessionUserId: string | undefined | null;
 }
 
 const ProfilePage = ({ user, searchParams }: Props) => {

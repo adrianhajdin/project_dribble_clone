@@ -14,6 +14,7 @@ const ProfileFilter = () => {
 
     useEffect(() => {
         const newPathName = updateSearchParams("tab", "work");
+
         router.push(newPathName)
     }, [router])
 
@@ -21,6 +22,7 @@ const ProfileFilter = () => {
         setFilter(item)
 
         const newPathName = updateSearchParams("tab", item);
+        
         router.push(newPathName);
     }
 
@@ -38,11 +40,7 @@ const ProfileFilter = () => {
                     </button>
                 ))}
             </ul>
-            <button
-                type="button"
-                onClick={() => console.log("Following")}
-                className="flexCenter gap-3 text-small p-3 mt-4 opacity-60 border border-light-white-500 rounded-lg max-md:w-full"
-            >
+            <button type="button" className="flexCenter gap-3 text-small p-3 mt-4 opacity-60 border border-light-white-500 rounded-lg max-md:w-full" >
                 Recent Shorts
                 <Image
                     src="/arrow-down.svg"

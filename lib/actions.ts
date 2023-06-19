@@ -25,36 +25,6 @@ export const uploadImage = async (imagePath: string) => {
     }
 }
 
-export const fetchAllProjects = async (search: string | null, category: string | null, cursor: string | null) => {
-    try {
-        // const allProjects = await makeRequest(`api/posts?category=${category}&search=${search}&cursor=${cursor}`, {
-        // //     method: "GET",
-        // //     // body: {
-        // //     //     search,
-        // //     //     category,
-        // //     //     cursor
-        // //     // }
-        // })
-
-        // return allProjects
-
-        // const isProduction = process.env.NODE_ENV === 'production';
-        // const fullUrl = isProduction ? `${process.env.SERVER_URL}/${url}` || '' : `http://localhost:3000/${url}`;
-        // const response = await fetch(`${process.env.SERVER_URL}/api/posts?category=${category}&search=${search}&cursor=${cursor}`, {
-        //     method: 'GET',
-        //     cache: 'reload'
-        // });
-        // const response = await fetch(`http://localhost:3000/api/posts?category=${category}&search=${search}&cursor=${cursor}`, {
-        //     method: 'GET',
-        //     cache: 'reload'
-        // });
-
-        // return response.json();
-    } catch (err) {
-        console.log("Error", err)
-    }
-}
-
 export const createNewProject = async (form: FormState, creatorId: string) => {
     try {
         const imageUrl = await uploadImage(form.image);
@@ -62,28 +32,16 @@ export const createNewProject = async (form: FormState, creatorId: string) => {
         if (imageUrl.url) {
             const newForm = { ...form, image: imageUrl.url, creatorId }
 
-            // const response = await fetch('api/posts', {
-            //     method: "POST",
-            //     body: JSON.stringify({ form: newForm, creatorId }),
-            // });
-    
-            // return response.json();
-
             const result = await makeRequest("api/posts", {
                 method: "POST",
-                body: {
-                    form: newForm,
-                    creatorId
-                }
+                body: { form: newForm, creatorId }
             })
             
-            console.log({result})
-
             return result
         }
 
     } catch (err) {
-        console.log("Error", err)
+        console.log("Error: ", err)
     }
 };
 

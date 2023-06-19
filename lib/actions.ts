@@ -76,6 +76,8 @@ export const createNewProject = async (form: FormState, creatorId: string) => {
                     creatorId
                 }
             })
+            
+            console.log({result})
 
             return result
         }

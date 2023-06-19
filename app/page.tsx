@@ -24,8 +24,12 @@ const Home = async ({ searchParams }: Props) => {
   let search = searchParams.search || null;
   let cursor = searchParams.cursor || null
 
+
+  const isProduction = process.env.NODE_ENV === 'production';
+  const baseUrl = isProduction ? `${process.env.SERVER_URL || ''}` : `http://localhost:3000/`;
+  const response = await fetch(`${baseUrl}/api/posts?category=${category}&search=${search}&cursor=${cursor}`);
   
-  const response = await fetch(`http://localhost:3000/api/posts?category=${category}&search=${search}&cursor=${cursor}`);
+  // const response = await fetch(`http://localhost:3000/api/posts?category=${category}&search=${search}&cursor=${cursor}`);
 
   // "default" | "force-cache" | "no-cache" | "no-store" | "only-if-cached" | "reload";
 

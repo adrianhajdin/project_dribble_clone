@@ -24,19 +24,6 @@ type FormState = {
 
 
 const ProfileAbout = async ({ user }: Props) => {
-    // const [sessionUserId, setSessionUserId] = useState('');
-    
-    // useEffect(() => {
-    //     const getSessionId = async () => {
-    //         const session = await getCurrentUser()
-
-            
-    //         // setSessionUserId(session?.user?.id)
-    //     }
-
-    //     getSessionId();
-    // }, [])
-    
     const router = useRouter()
 
     const [openEditModal, setOpenEditModal] = useState(false);

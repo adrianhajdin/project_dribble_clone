@@ -130,7 +130,7 @@ const ProfileAbout = async ({ user }: Props) => {
                 url={user?.githubUrl}
                 buttonText="Add GitHub"
                 userId={user?.id}
-                sessionUserId={sessionUserId}
+                // sessionUserId={sessionUserId}
                 onClick={() => setOpenEditModal(true)}
             />
             <SocialMedia
@@ -138,7 +138,7 @@ const ProfileAbout = async ({ user }: Props) => {
                 url={user?.linkedinUrl}
                 buttonText="Add LinkedIn"
                 userId={user?.id}
-                sessionUserId={sessionUserId}
+                // sessionUserId={sessionUserId}
                 onClick={() => setOpenEditModal(true)}
             />
 

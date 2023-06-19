@@ -33,6 +33,7 @@ const Home = async ({ searchParams }: Props) => {
     )
   }
 
+  console.log({ projects: projects?.projectSearch?.edges })
   console.log({ hasNextPage: projects?.projectSearch?.pageInfo?.hasNextPage })
 
   return (

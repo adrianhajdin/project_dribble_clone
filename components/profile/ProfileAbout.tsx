@@ -30,7 +30,8 @@ const ProfileAbout = async ({ user }: Props) => {
         const getSessionId = async () => {
             const session = await getCurrentUser()
 
-            setSessionUserId(session?.user?.id)
+            
+            // setSessionUserId(session?.user?.id)
         }
 
         getSessionId();

@@ -13,6 +13,7 @@ const HomeFilter = () => {
 
   const handleTags = (item: string) => {
     const newPathName = updateSearchParams("category", item);
+    
     router.push(newPathName);
 
     setTag(item)

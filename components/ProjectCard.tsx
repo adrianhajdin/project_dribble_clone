@@ -10,10 +10,9 @@ type Props = {
     name: string;
     avatarUrl: string;
     userId: string;
-    sessionUserId: string | null | undefined
 };
 
-const ProjectCard = ({ id, image, title, name, avatarUrl, userId, sessionUserId }: Props) => {
+const ProjectCard = ({ id, image, title, name, avatarUrl, userId }: Props) => {
     return (
         <div className="flexCenter flex-col rounded-2xl drop-shadow-card">
             <Link
@@ -34,7 +33,8 @@ const ProjectCard = ({ id, image, title, name, avatarUrl, userId, sessionUserId 
             </Link>
 
             <div className="flexBetween w-full px-2 mt-3 font-semibold text-sm">
-                <Link href={sessionUserId === userId ? "/profile" : `/profile/${userId}`}>
+            <Link href={`/profile/${userId}`}>
+
                     <div className="flexCenter gap-2">
                         <Image
                             src={avatarUrl}
@@ -44,8 +44,8 @@ const ProjectCard = ({ id, image, title, name, avatarUrl, userId, sessionUserId 
                             alt="profile image"
                         />
                         <p>{name}</p>
-                    </div>
-                </Link>
+                    </div>               
+            </Link>
 
                 <div className="flexCenter gap-3">
                     <div className="flexCenter gap-2">

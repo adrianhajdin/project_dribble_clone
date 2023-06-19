@@ -40,12 +40,16 @@ export const fetchAllProjects = async (search: string | null, category: string |
 
         // const isProduction = process.env.NODE_ENV === 'production';
         // const fullUrl = isProduction ? `${process.env.SERVER_URL}/${url}` || '' : `http://localhost:3000/${url}`;
-        const response = await fetch(`${process.env.SERVER_URL}/api/posts?category=${category}&search=${search}&cursor=${cursor}`, {
-            method: 'GET',
-            cache: 'reload'
-        });
+        // const response = await fetch(`${process.env.SERVER_URL}/api/posts?category=${category}&search=${search}&cursor=${cursor}`, {
+        //     method: 'GET',
+        //     cache: 'reload'
+        // });
+        // const response = await fetch(`http://localhost:3000/api/posts?category=${category}&search=${search}&cursor=${cursor}`, {
+        //     method: 'GET',
+        //     cache: 'reload'
+        // });
 
-        return response.json();
+        // return response.json();
     } catch (err) {
         console.log("Error", err)
     }
